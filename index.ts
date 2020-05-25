@@ -1,7 +1,9 @@
-import { parseDate } from 'https://deno.land/std/datetime/mod.ts';
+import { Application } from "https://deno.land/x/oak/mod.ts";
 
-// const hello: number = 6;
-// console.log(hello);
+const app = new Application();
 
-console.log(parseDate("12-02-2020", "dd-mm-yyyy"));
+app.use((ctx) => {
+  ctx.response.body = "Hello World!";
+});
 
+await app.listen({ port: 8000 });
